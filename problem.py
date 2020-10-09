@@ -26,8 +26,21 @@
  
 
 def two_sum(lst, target):
+    """Given an array and an integer return the indices of two numbers that sum is the target."""
+
+    indices = []
+
+    for idx, number in enumerate(lst):
+        number2 = target - number
+        number1 = target - number2
+        if number1 in lst and number2 in lst:
+            indices.append(idx)
+            # print(idx)
+    return indices
 
 
 print(two_sum([2,7,11,15], 9)) #[0,1]
 print(two_sum([3,2,4], 6)) #[1,2]
 print(two_sum([3,3], 6)) #[0,1]
+print(two_sum([7,4,5,2,7], 14)) #[0,4]
+print(two_sum([7,4,5,4,7], 8)) #[1,3]
